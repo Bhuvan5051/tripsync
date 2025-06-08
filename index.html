@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TripSync - Trip Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TripSync - Trip Management</h1>
+
+    <div id="loginSection">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="mainSection" style="display: none;">
+        <h2>Welcome, <span id="displayName"></span></h2>
+
+        <h3>Create a Trip</h3>
+        <input type="text" id="tripName" placeholder="Trip Name">
+        <input type="date" id="tripDate">
+        <button onclick="addTrip()">Add Trip</button>
+
+        <h3>Your Trips</h3>
+        <ul id="tripList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
