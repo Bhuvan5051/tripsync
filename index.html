@@ -13,18 +13,19 @@
       background-image: url('https://mir-s3-cdn-cf.behance.net/projects/max_808/805097174989423.Y3JvcCwxNDA2LDEwOTksMCww.png');
       background-size: cover;
       background-position: center;
-      height: 100vh;
-      overflow: hidden;
+      height: 100%;
+      overflow-y: auto;
     }
     .overlay {
       background-color: rgba(0,0,0,0.6);
-      position: absolute;
+      position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
     .form-box {
       background: white;
@@ -62,16 +63,17 @@
     }
     #mainContent {
       display: none;
-      height: 100vh;
-      background: white;
+      background: rgba(255, 255, 255, 0.9);
       padding: 20px;
+      min-height: 100vh;
     }
     .menu {
-      position: absolute;
+      position: fixed;
       top: 10px;
       left: 10px;
       font-size: 30px;
       cursor: pointer;
+      z-index: 1001;
     }
     .sidebar {
       width: 200px;
@@ -83,6 +85,7 @@
       color: white;
       padding: 20px;
       transition: left 0.3s ease;
+      z-index: 1001;
     }
     .sidebar.active {
       left: 0;
@@ -99,9 +102,15 @@
     .place-card {
       background: #f9f9f9;
       padding: 15px;
-      margin: 10px 0;
+      margin: 20px 0;
       border-left: 5px solid #007bff;
       border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .place-card img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -141,20 +150,32 @@
     <h2>Famous Tourist Places in India</h2>
     <div class="places">
       <div class="place-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ooty_morning_view.jpg/640px-Ooty_morning_view.jpg" alt="Ooty">
         <strong>Ooty, Tamil Nadu</strong><br>
-        Weather: 17°C | Stay: ₹1200/night | Food: ₹400/day | Transport: ₹300/day
+        Weather: 17°C | Stay: ₹1200/night | Food: ₹400/day | Transport: ₹300/day<br>
+        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 1200, 400, 300)"><br>
+        Total Cost: ₹<span class="total">1900</span>/day
       </div>
       <div class="place-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Munnar_hill_station_kerala.jpg/640px-Munnar_hill_station_kerala.jpg" alt="Munnar">
         <strong>Munnar, Kerala</strong><br>
-        Weather: 20°C | Stay: ₹1000/night | Food: ₹350/day | Transport: ₹250/day
+        Weather: 20°C | Stay: ₹1000/night | Food: ₹350/day | Transport: ₹250/day<br>
+        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 1000, 350, 250)"><br>
+        Total Cost: ₹<span class="total">1600</span>/day
       </div>
       <div class="place-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ridge%2C_Shimla.JPG/640px-Ridge%2C_Shimla.JPG" alt="Shimla">
         <strong>Shimla, Himachal Pradesh</strong><br>
-        Weather: 15°C | Stay: ₹1300/night | Food: ₹500/day | Transport: ₹400/day
+        Weather: 15°C | Stay: ₹1300/night | Food: ₹500/day | Transport: ₹400/day<br>
+        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 1300, 500, 400)"><br>
+        Total Cost: ₹<span class="total">2200</span>/day
       </div>
       <div class="place-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hawa_Mahal_2011.jpg/640px-Hawa_Mahal_2011.jpg" alt="Jaipur">
         <strong>Jaipur, Rajasthan</strong><br>
-        Weather: 32°C | Stay: ₹900/night | Food: ₹300/day | Transport: ₹200/day
+        Weather: 32°C | Stay: ₹900/night | Food: ₹300/day | Transport: ₹200/day<br>
+        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 900, 300, 200)"><br>
+        Total Cost: ₹<span class="total">1400</span>/day
       </div>
     </div>
   </div>
@@ -184,7 +205,12 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    function calculateTotal(input, stay, food, transport) {
+      const persons = parseInt(input.value);
+      const total = (stay + food + transport) * persons;
+      input.parentElement.querySelector('.total').innerText = total;
+    }
   </script>
 </body>
 </html>
-
