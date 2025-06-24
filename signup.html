@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripSync Advanced</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="top-banner">
+        <nav>
+            <span class="material-symbols-outlined" id="menu" onclick="opensidebar()">menu</span>
+        </nav>
+    <h1>TripSync</h1>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <a href="#">Home</a>
+        <a href="">Support</a>
+        <a href="">Places</a>
+        <a href="">about</a>
+        <a href="">Logout</a>
+    </div>
+    <div class="form1">
+        <form >
+            <h1>Signup</h1>
+            <input type="text" placeholder="Username" id="Sname"/>
+            <div class="info">
+            <input type="text" placeholder="Firstname" id="Fname"/>
+            <input type="text" placeholder="Lastname" id="Lname"/>
+            <input type="email" placeholder="E-mail id" id="email"/>
+            <input type="password" placeholder="Password" id="Password"/>
+            <input type="password" placeholder=" Confirm Password" id="CPassword"/>
+            </div>
+            <br>
+            <button onclick="return getdata()">Login</button>
+            <p>Have an accout? <a href="./index.html">Login?</a></p>
+        </form>
+    </div>
+
+    <script>
+        function opensidebar(){
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+        function getdata(){
+            const user=document.forms[0]['Sname'].value;
+            const fname=document.forms[0]['Fname'].value;
+            const luser=document.forms[0]['Lname'].value;
+            const email_id=document.forms[0]['email'].value;
+            const pass=document.forms[0]['Password'].value;
+            const pass2=document.forms[0]['CPassword'].value;
+
+            if(!user || !fname || !luser || !email_id || !pass || !pass2){
+
+                alert("Fill all the details!!");
+                return false;
+            }
+
+                if(pass !== pass2){
+                    alert("password does not match!!");
+                    return false;
+                }
+
+        const userdata = {
+            user,
+            fname,
+            luser,
+            email,
+            pass,
+            pass2
+        };
+
+        localStorage.setItem("user_data",JSON.stringify(userdata));
+        alert("signup successful!!");
+        window.location.href="index.html";
+        return false;
+    }
+    </script>
+</body>
+</html>
