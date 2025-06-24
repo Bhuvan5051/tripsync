@@ -209,10 +209,34 @@ body {
     padding-left: 5px;
 }
 
+
+.top-banner_home {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0%;
+    background-color: aquamarine;
+    height: 70px;
+    z-index: 1001;
+
+}
+
+
+.top-banner_home nav {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* For mobile devices */
 @media (max-width: 768px) {
   .top-banner,
   .top-banner_home {
+    width: 768px;
     height: 60px;
     padding: 0 10px;
     justify-content: flex-start;
@@ -226,10 +250,10 @@ body {
 
   .form0,
   .form1 {
-    width: 90%;
-    height: auto;
-    margin: 20% auto;
-    padding: 20px;
+    width: 250px;
+    height: 300px;
+    margin: 400px 0px 0px 270px;
+
   }
 
   .form1 {
@@ -245,19 +269,33 @@ body {
   .form1 button,
   #Sname,
   .info input {
-    width: 90%;
-    margin-left: 5%;
+    width: 80%;
+    height: 30px;
+    margin-left: 9%;
+  }
+
+  .form0 input[type="checkbox"] {
+    margin-left: 20px;
   }
 
   .form0 button,
   .form1 button {
-    height: 40px;
-    font-size: 16px;
+    height: 30px;
+    font-size: 15px;
+  }
+  .form0 label,
+  .form0 p ,
+  .form p a {
+    font-size: 12px;
+  }
+
+  .form0 p {
+    font-size: 12px;
   }
 
   #forgot {
+    font-size: 12px;
     margin-left: 5%;
-    display: block;
     margin-top: 10px;
   }
 
@@ -267,7 +305,7 @@ body {
   }
 
   .sidebar.active {
-    width: 60%;
+    width: 40%;
   }
 
   .sidebar a {
@@ -280,4 +318,3 @@ body {
     background-position: center;
   }
 }
-
