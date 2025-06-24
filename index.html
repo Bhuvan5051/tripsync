@@ -4,213 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TripSync Advanced</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('https://mir-s3-cdn-cf.behance.net/projects/max_808/805097174989423.Y3JvcCwxNDA2LDEwOTksMCww.png');
-      background-size: cover;
-      background-position: center;
-      height: 100%;
-      overflow-y: auto;
-    }
-    .overlay {
-      background-color: rgba(0,0,0,0.6);
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .form-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 300px;
-      text-align: center;
-    }
-    .form-box h2 {
-      margin-bottom: 20px;
-    }
-    .form-box input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .form-box button {
-      width: 100%;
-      padding: 10px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .form-box .link {
-      color: blue;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    #signupForm {
-      display: none;
-    }
-    #mainContent {
-      display: none;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      min-height: 100vh;
-    }
-    .menu {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      font-size: 30px;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      width: 200px;
-      height: 100vh;
-      background: #333;
-      position: fixed;
-      left: -200px;
-      top: 0;
-      color: white;
-      padding: 20px;
-      transition: left 0.3s ease;
-      z-index: 1001;
-    }
-    .sidebar.active {
-      left: 0;
-    }
-    .sidebar a {
-      color: white;
-      display: block;
-      margin: 20px 0;
-      text-decoration: none;
-    }
-    .places {
-      margin-top: 60px;
-    }
-    .place-card {
-      background: #f9f9f9;
-      padding: 15px;
-      margin: 20px 0;
-      border-left: 5px solid #007bff;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .place-card img {
-      max-width: 100%;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="overlay">
-    <div class="form-box" id="loginForm">
-      <h2>Login</h2>
-      <input type="text" id="loginUsername" placeholder="Username">
-      <input type="password" id="loginPassword" placeholder="Password">
-      <button onclick="login()">Login</button>
-      <p class="link" onclick="toggleForms(true)">Don't have an account? Create one</p>
+    <div class="top-banner">
+        <nav>
+            <span class="material-symbols-outlined" id="menu" onclick="opensidebar()">menu</span>
+        </nav>
+    <h1>TripSync</h1>
     </div>
 
-    <div class="form-box" id="signupForm">
-      <h2>Create Account</h2>
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
-      <input type="tel" placeholder="Mobile Number" required>
-      <input type="text" placeholder="Address" required>
-      <input type="email" placeholder="Email" required>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button onclick="toggleForms(false)">Sign Up</button>
+    <div class="sidebar" id="sidebar">
+        <a href="#">Home</a>
+        <a href="">Support</a>
+        <a href="">Places</a>
+        <a href="">about</a>
+        <a href="">Logout</a>
     </div>
-  </div>
-
-  <div class="sidebar" id="sidebar">
-    <a href="#" onclick="alert('Contact us at support@tripsync.in')">Customer Support</a>
-    <a href="#" onclick="scrollToTop()">Home</a>
-  </div>
-
-  <div class="menu" onclick="toggleSidebar()">
-    <i class="fas fa-bars"></i>
-  </div>
-
-  <div id="mainContent">
-    <h2>Famous Tourist Places in India</h2>
-    <div class="places">
-      <div class="place-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ooty_morning_view.jpg/640px-Ooty_morning_view.jpg" alt="Ooty">
-        <strong>Ooty, Tamil Nadu</strong><br>
-        Weather: 17°C | Stay: ₹1200/night | Food: ₹400/day | Transport: ₹300/day<br>
-        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 1200, 400, 300)"><br>
-        Total Cost: ₹<span class="total">1900</span>/day
-      </div>
-      <div class="place-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Munnar_hill_station_kerala.jpg/640px-Munnar_hill_station_kerala.jpg" alt="Munnar">
-        <strong>Munnar, Kerala</strong><br>
-        Weather: 20°C | Stay: ₹1000/night | Food: ₹350/day | Transport: ₹250/day<br>
-        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 1000, 350, 250)"><br>
-        Total Cost: ₹<span class="total">1600</span>/day
-      </div>
-      <div class="place-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ridge%2C_Shimla.JPG/640px-Ridge%2C_Shimla.JPG" alt="Shimla">
-        <strong>Shimla, Himachal Pradesh</strong><br>
-        Weather: 15°C | Stay: ₹1300/night | Food: ₹500/day | Transport: ₹400/day<br>
-        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 1300, 500, 400)"><br>
-        Total Cost: ₹<span class="total">2200</span>/day
-      </div>
-      <div class="place-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hawa_Mahal_2011.jpg/640px-Hawa_Mahal_2011.jpg" alt="Jaipur">
-        <strong>Jaipur, Rajasthan</strong><br>
-        Weather: 32°C | Stay: ₹900/night | Food: ₹300/day | Transport: ₹200/day<br>
-        No. of Persons: <input type="number" value="1" min="1" onchange="calculateTotal(this, 900, 300, 200)"><br>
-        Total Cost: ₹<span class="total">1400</span>/day
-      </div>
+    <div class="form0">
+        <form>
+            <h1>Login</h1>
+            <input type="text" placeholder="Username" id="name"/>
+            <input type="password" placeholder="Password" id="pass"/>
+            <br>
+            <div class="gap">
+            <input type="checkbox" id="rem"/>
+            <label for="rem">Remember me</label>
+            <a href="#" id="forgot">Forgot Password?</a>
+            </div>
+            <button onclick="return logging()">Login</button>
+            <p>Dont have an accout? <a href="./signup.html">Signup?</a></p>
+        </form>
     </div>
-  </div>
 
-  <script>
-    function toggleForms(signup) {
-      document.getElementById('loginForm').style.display = signup ? 'none' : 'block';
-      document.getElementById('signupForm').style.display = signup ? 'block' : 'none';
+    <script>
+        function opensidebar(){
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function logging(){
+        const homepage = JSON.parse(localStorage.getItem("user_data"));
+        if(!homepage){
+            alert("no user found!!");
+            return false;
+        }
+
+        const homeuser=document.forms[0]['name'].value;
+        const homepass = document.forms[0]['pass'].value;
+
+        if(homeuser== homepage.user  && homepass == homepage.pass){
+            alert("login successful!!");
+            window.location.href ="home.html";
+        }
+
+        else {
+            alert("Invalid!!");
+        }
+
+        return false;
     }
 
-    function login() {
-      const user = document.getElementById('loginUsername').value;
-      const pass = document.getElementById('loginPassword').value;
-      if(user && pass) {
-        document.querySelector('.overlay').style.display = 'none';
-        document.getElementById('mainContent').style.display = 'block';
-      } else {
-        alert("Please enter username and password");
-      }
-    }
-
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('active');
-    }
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function calculateTotal(input, stay, food, transport) {
-      const persons = parseInt(input.value);
-      const total = (stay + food + transport) * persons;
-      input.parentElement.querySelector('.total').innerText = total;
-    }
-  </script>
+    </script>
 </body>
 </html>
