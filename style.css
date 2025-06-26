@@ -2,6 +2,7 @@ body {
     font-family: cursive;
     margin: 0;
     background-image: url("http://tripzdude.com/wp-content/uploads/2023/02/travel-app-development-guide-feature-image.jpg");
+    background-attachment: fixed;
 }
 
 
@@ -94,6 +95,7 @@ body {
     border-radius: 7px;
     background-color: rgb(27, 163, 242);
     font-size: 15px;
+    cursor: pointer;
 
 }
 .form0 p{
@@ -311,10 +313,68 @@ body {
   .sidebar a {
     font-size: 16px;
     padding: 10px 20px;
+    cursor: pointer;
   }
 
   body {
     background-size: cover;
     background-position: center;
   }
+}
+
+
+.container {
+  margin-top: 60px;
+  margin-left: 300px;
+  width: 930px;
+  height:100%;
+  display: grid;
+  overflow-x: visible;
+  background-color: white;
+}
+
+.card {
+  width: 900px;
+  height:250px;
+  background-color: white;
+  margin-left: 12px;
+  margin-top: 20px;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+
+.img_data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img_data p {
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-top: 50px;
+}
+
+.img_data img {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.button_align {
+  display: flex;
+  flex-direction: column;
+}
+
+.button_align button {
+  align-self: flex-start;
+  margin-left: 30px;
+  border-radius: 5px;
+  background-color: aqua;
+  width: 150px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.button_align button:hover {
+  background-color: rgb(192, 95, 95);
+  transition: 0.5s;
 }
