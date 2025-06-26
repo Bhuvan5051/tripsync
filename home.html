@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="top-banner">
+    <div class="top-banner_home">
         <nav>
             <span class="material-symbols-outlined" id="menu" onclick="opensidebar()">menu</span>
         </nav>
@@ -23,10 +23,162 @@
         <a href="">Logout</a>
     </div>
 
+    <div class="container">
+        <div class="card">
+            <div class="img_data">       
+                <img src="./images/delhi_lotus.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+                <div class="button_align">
+                    <p style="text-align: justify;">Delhi Tourism, a government undertaking facilitating tourism since 1975 will take you to a guided tour of the Delhi through this website. It explores the wonders of Delhi, its heritage, the art and craft, the diverse cuisine and culture.</p>
+                <button onclick="return selecting()">Select</button>
+                </div>
+                </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/goa.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">The state of Goa, in India, is famous for its beaches and places of worship. Tourism is its primary industry, and is generally focused on the coastal areas of Goa, with decreased tourist activity inland.Foreign tourists, mostly from Europe, arrive in Goa in winter, whilst the summer and monsoon seasons see many Indian tourit.</p>
+
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/Himachal_manali.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">Manali (Hindi: [mənaːliː]) is a resort town, near Kullu town in Kullu district in the Indian state of Himachal Pradesh.[2] It is situated in the northern end of the Kullu Valley, formed by the Beas River. The town is located in the Kullu district, approximately 270 kilometres (170 mi) north of the state capital of Shimla and 544 kilometres (338 mi) northeast of the national capital of New Delhi.</p>
+
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/kerala_munnar.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">Kerala, a state situated on the tropical Malabar Coast of southwestern India, is one of the most popular tourist destinations in the country. Named as one of the ten paradises of the world by National Geographic Traveler,[1] Kerala is famous especially for its ecotourism initiatives and beautiful backwaters.[2] Kerala has unique culture and traditions coupled with its varied demography.</p>
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/pondicherry.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">Pondicherry is the capital city of the Union Territory of Puducherry and is one of the most popular tourist destinations in South India.A French colony until 1954, this coastal town retains a number of colonial buildings, churches, statues, and systematic town planning, as well as urban architecture of the local Tamil style. As such the town has been dubbed "The Europe of India".</p>
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
     <script>
         function opensidebar(){
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('active');
+        }
+
+        function selecting(){
+            alert("selected place successfully!!");
+            return false;
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripSync Advanced</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="top-banner_home">
+        <nav>
+            <span class="material-symbols-outlined" id="menu" onclick="opensidebar()">menu</span>
+        </nav>
+    <h1>TripSync</h1>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <a href="#">Home</a>
+        <a href="">Support</a>
+        <a href="">Places</a>
+        <a href="">about</a>
+        <a href="">Logout</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="img_data">       
+                <img src="./images/delhi_lotus.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+                <div class="button_align">
+                    <p style="text-align: justify;">Delhi Tourism, a government undertaking facilitating tourism since 1975 will take you to a guided tour of the Delhi through this website. It explores the wonders of Delhi, its heritage, the art and craft, the diverse cuisine and culture.</p>
+                <button onclick="return selecting()">Select</button>
+                </div>
+                </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/goa.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">The state of Goa, in India, is famous for its beaches and places of worship. Tourism is its primary industry, and is generally focused on the coastal areas of Goa, with decreased tourist activity inland.Foreign tourists, mostly from Europe, arrive in Goa in winter, whilst the summer and monsoon seasons see many Indian tourit.</p>
+
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/Himachal_manali.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">Manali (Hindi: [mənaːliː]) is a resort town, near Kullu town in Kullu district in the Indian state of Himachal Pradesh.[2] It is situated in the northern end of the Kullu Valley, formed by the Beas River. The town is located in the Kullu district, approximately 270 kilometres (170 mi) north of the state capital of Shimla and 544 kilometres (338 mi) northeast of the national capital of New Delhi.</p>
+
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/kerala_munnar.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">Kerala, a state situated on the tropical Malabar Coast of southwestern India, is one of the most popular tourist destinations in the country. Named as one of the ten paradises of the world by National Geographic Traveler,[1] Kerala is famous especially for its ecotourism initiatives and beautiful backwaters.[2] Kerala has unique culture and traditions coupled with its varied demography.</p>
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img_data">
+            <img src="./images/pondicherry.jpg" width="200px" height="200px" alt="Delhi_tourist place"/>
+            <div class="button_align">
+            <p style="text-align: justify;">Pondicherry is the capital city of the Union Territory of Puducherry and is one of the most popular tourist destinations in South India.A French colony until 1954, this coastal town retains a number of colonial buildings, churches, statues, and systematic town planning, as well as urban architecture of the local Tamil style. As such the town has been dubbed "The Europe of India".</p>
+            <button onclick="return selecting()">Select</button>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function opensidebar(){
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function selecting(){
+            alert("selected place successfully!!");
+            return false;
         }
     </script>
 </body>
